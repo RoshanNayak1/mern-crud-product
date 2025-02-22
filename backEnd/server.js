@@ -3,19 +3,16 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
+import productRoutes from "./routes/product.route.js";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware for JSON parsing
-
+app.use("/api/products",productRoutes);
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB Connected"))
+mongoose.connect(process.env.MONGO_URI).then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
 // Serve React Vite frontend from backend in production
