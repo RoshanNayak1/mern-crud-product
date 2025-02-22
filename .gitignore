@@ -25,7 +25,7 @@ Thumbs.db
 
 # Build files
 backend/build/
-frontend/dist/
+# frontend/dist/
 frontend/.vite/
 
 # Cache files
